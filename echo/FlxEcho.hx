@@ -15,6 +15,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
+import flixel.util.FlxDirectionFlags;
 
 using Math;
 using Std;
@@ -319,7 +320,7 @@ class FlxEcho extends FlxBasic
 
 	static inline function set_touching(object:FlxObject, touching:Int)
 	{
-		if (object.touching & touching == 0) object.touching += touching;
+		if (object.touching & touching == 0) object.touching = object.touching | touching;
 	}
 
 	static function square_normal(normal:Vector2)
